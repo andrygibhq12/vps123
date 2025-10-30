@@ -3,7 +3,7 @@
 echo "=== Updating system ==="
 sudo apt update -y
 
-echo "=== Install xfce4 ==="
+echo "=== Installing xfce4 ==="
 sudo apt install xfce4 xrdp -y
 
 echo "startxfce4" > ~/.xsession
@@ -30,6 +30,7 @@ echo "deb [signed-by=/etc/apt/trusted.gpg.d/playit.gpg] https://playit-cloud.git
   sudo tee /etc/apt/sources.list.d/playit-cloud.list
 
 echo "=== Installing Playit ==="
+sudo apt update -y
 sudo apt install -y playit
 
 echo "=== Enabling Playit service ==="
