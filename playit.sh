@@ -1,8 +1,7 @@
 #!/bin/bash
 
-sudo apt update
 echo "=== Updating system ==="
-sudo apt update -y && sudo apt upgrade -y
+sudo apt update -y
 
 echo "=== Install xfce4 ==="
 sudo apt install xfce4 xrdp -y
@@ -29,9 +28,6 @@ curl -fsSL https://playit-cloud.github.io/ppa/key.gpg | \
 
 echo "deb [signed-by=/etc/apt/trusted.gpg.d/playit.gpg] https://playit-cloud.github.io/ppa/data ./" | \
   sudo tee /etc/apt/sources.list.d/playit-cloud.list
-
-echo "=== Updating package list ==="
-sudo apt update -y
 
 echo "=== Installing Playit ==="
 sudo apt install -y playit
