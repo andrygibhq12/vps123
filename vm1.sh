@@ -225,6 +225,7 @@ create_new_vm() {
     done
 
     while true; do
+        read -p "$(print_status "INPUT" "Number of CPUs (default: 7): ")" CPUS
         CPUS="${CPUS:-7}"
         if validate_input "number" "$CPUS"; then
             break
@@ -257,8 +258,8 @@ create_new_vm() {
     done
 
     # Additional network options
+    read -p "$(print_status "INPUT" "Additional port forwards: ")" PORT_FORWARDS
     
-
     IMG_FILE="$VM_DIR/$VM_NAME.img"
     SEED_FILE="$VM_DIR/$VM_NAME-seed.iso"
     CREATED="$(date)"
