@@ -4,11 +4,7 @@ echo "=== Updating system ==="
 sudo apt update -y
 
 echo "=== Installing xfce4 ==="
-sudo apt install xfce4 xrdp -y
-
-echo "startxfce4" > ~/.xsession
-sudo chown $(whoami):$(whoami) ~/.xsession
-
+sudo apt install xrdp -y
 sudo systemctl enable xrdp
 
 echo "=== Installing Chrome ==="
