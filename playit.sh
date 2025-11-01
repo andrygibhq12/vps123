@@ -4,15 +4,14 @@ echo "=== Updating system ==="
 sudo apt update -y
 
 echo "=== Installing xfce4 ==="
-sudo apt install xfce4 xrdp -y > /dev/null 2>&1
-
-echo "startxfce4" > ~/.xsession
-sudo chown $(whoami):$(whoami) ~/.xsession > /dev/null 2>&1
+sudo apt install lxde -y
+sudo apt install xrdp -y > /dev/null 2>&1
+echo "lxsession -s LXDE -e LXDE" >> /etc/xrdp/startwm.sh > /dev/null 2>&1
 sudo systemctl enable xrdp > /dev/null 2>&1
 
 echo "=== Installing Chrome ==="
-wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_134.0.6998.165-1_amd64.deb > /dev/null 2>&1
-sudo dpkg -i google-chrome-stable_134.0.6998.165-1_amd64.deb > /dev/null 2>&1
+wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb > /dev/null 2>&1
+sudo dpkg -i google-chrome-stable_current_amd64.deb > /dev/null 2>&1
 sudo apt --fix-broken install -y > /dev/null 2>&1
 
 
