@@ -175,6 +175,7 @@ create_new_vm() {
 
     # Custom Inputs with validation
     while true; do
+        read -p "$(print_status "INPUT" "Enter VM name (default: $DEFAULT_HOSTNAME): ")" VM_NAME
         VM_NAME="${VM_NAME:-$DEFAULT_HOSTNAME}"
         if validate_input "name" "$VM_NAME"; then
             # Check if VM name already exists
@@ -187,6 +188,7 @@ create_new_vm() {
     done
 
     while true; do
+        read -p "$(print_status "INPUT" "Enter hostname (default: $VM_NAME): ")" HOSTNAME
         HOSTNAME="${HOSTNAME:-$VM_NAME}"
         if validate_input "name" "$HOSTNAME"; then
             break
@@ -194,14 +196,16 @@ create_new_vm() {
     done
 
     while true; do
-        USERNAME="${USERNAME:-$DEFAULT_USERNAME}"
+        read -p "$(print_status "INPUT" "Enter username (default: gibhq): ")" USERNAME
+        USERNAME="${USERNAME:-gibhq}"
         if validate_input "username" "$USERNAME"; then
             break
         fi
     done
 
     while true; do
-        PASSWORD="${PASSWORD:-$DEFAULT_PASSWORD}"
+        read -s -p "$(print_status "INPUT" "Enter password (default: gibhq): ")" PASSWORD
+        PASSWORD="${PASSWORD:-gibhq}"
         echo
         if [ -n "$PASSWORD" ]; then
             break
@@ -211,6 +215,7 @@ create_new_vm() {
     done
 
     while true; do
+        read -p "$(print_status "INPUT" "Disk size (default: 120G): ")" DISK_SIZE
         DISK_SIZE="${DISK_SIZE:-120G}"
         if validate_input "size" "$DISK_SIZE"; then
             break
@@ -218,6 +223,7 @@ create_new_vm() {
     done
 
     while true; do
+        read -p "$(print_status "INPUT" "Memory in MB (default: 32768): ")" MEMORY
         MEMORY="${MEMORY:-32768}"
         if validate_input "number" "$MEMORY"; then
             break
@@ -233,6 +239,7 @@ create_new_vm() {
     done
 
     while true; do
+        read -p "$(print_status "INPUT" "SSH Port (default: 2222): ")" SSH_PORT
         SSH_PORT="${SSH_PORT:-2222}"
         if validate_input "port" "$SSH_PORT"; then
             # Check if port is already in use
@@ -245,6 +252,7 @@ create_new_vm() {
     done
 
     while true; do
+        read -p "$(print_status "INPUT" "Enable GUI mode? (y/n, default: n): ")" gui_input
         GUI_MODE=false
         gui_input="${gui_input:-n}"
         if [[ "$gui_input" =~ ^[Yy]$ ]]; then 
@@ -258,8 +266,8 @@ create_new_vm() {
     done
 
     # Additional network options
-    read -p "$(print_status "INPUT" "Additional port forwards: ")" PORT_FORWARDS
-    
+    read -p "$(print_status "INPUT" "Additional port forwards (e.g., 8080:80, press Enter for none): ")" PORT_FORWARDS
+
     IMG_FILE="$VM_DIR/$VM_NAME.img"
     SEED_FILE="$VM_DIR/$VM_NAME-seed.iso"
     CREATED="$(date)"
@@ -853,7 +861,12 @@ mkdir -p "$VM_DIR"
 declare -A OS_OPTIONS=(
     ["Ubuntu 20.04"]="ubuntu|focal|https://cloud-images.ubuntu.com/focal/current/focal-server-cloudimg-amd64.img|ubuntu20|ubuntu|ubuntu"
     ["Ubuntu 22.04"]="ubuntu|jammy|https://cloud-images.ubuntu.com/jammy/current/jammy-server-cloudimg-amd64.img|ubuntu22|ubuntu|ubuntu"
-    ["Ubuntu 24.04"]="ubuntu|noble|https://cloud-images.ubuntu.com/bionic/current/bionic-server-cloudimg-amd64.img|ubuntu20|ubuntu|ubuntu"
+    ["Ubuntu 24.04"]="ubuntu|noble|https://cloud-images.ubuntu.com/noble/current/noble-server-cloudimg-amd64.img|ubuntu24|ubuntu|ubuntu"
+    ["Ubuntu 25.04"]="ubuntu|plucky|https://cloud-images.ubuntu.com/plucky/current/plucky-server-cloudimg-amd64.img|ubuntu25|ubuntu|ubuntu"
+    ["Debian 10"]="debian|buster|https://cloud.debian.org/images/cloud/buster/latest/debian-10-generic-amd64.qcow2|debian10|debian|debian"
+    ["Debian 11"]="debian|bullseye|https://cloud.debian.org/images/cloud/bullseye/latest/debian-11-generic-amd64.qcow2|debian11|debian|debian"
+    ["Debian 12"]="debian|bookworm|https://cloud.debian.org/images/cloud/bookworm/latest/debian-12-generic-amd64.qcow2|debian12|debian|debian"
+    ["Debian 13"]="debian|trixie|https://cloud.debian.org/images/cloud/trixie/latest/debian-13-generic-amd64.qcow2|debian13|debian|debian"
 )
 
 # Start the main menu
