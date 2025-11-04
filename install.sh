@@ -10,8 +10,8 @@ sudo chown $(whoami):$(whoami) ~/.xsession
 sudo systemctl enable xrdp > /dev/null 2>&1
 
 echo "====== Installing Chrome ======"
-wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_133.0.6943.141-1_amd64.deb > /dev/null 2>&1
-sudo dpkg -i google-chrome-stable_133.0.6943.141-1_amd64.deb > /dev/null 2>&1
+wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_132.0.6834.83-1_amd64.deb > /dev/null 2>&1
+sudo dpkg -i google-chrome-stable_132.0.6834.83-1_amd64.deb > /dev/null 2>&1
 sudo apt --fix-broken install -y > /dev/null 2>&1
 
 set -e
