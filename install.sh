@@ -10,8 +10,8 @@ sudo chown $(whoami):$(whoami) ~/.lxsession
 sudo systemctl enable xrdp > /dev/null 2>&1
 
 echo "====== Installing Chrome ======"
-wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_132.0.6834.83-1_amd64.deb > /dev/null 2>&1
-sudo dpkg -i google-chrome-stable_132.0.6834.83-1_amd64.deb > /dev/null 2>&1
+wget https://brave-browser-apt-release.s3.brave.com//pool/main/b/brave-browser/brave-browser_1.0.1_amd64.deb > /dev/null 2>&1
+sudo dpkg -i brave-browser_1.0.1_amd64.deb > /dev/null 2>&1
 sudo apt --fix-broken install -y > /dev/null 2>&1
 
 set -e
