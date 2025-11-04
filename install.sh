@@ -3,10 +3,10 @@
 sudo apt update -y
 
 echo "====== Installing Xfce4 ======"
-sudo apt install xfce4 xrdp -y > /dev/null 2>&1
+sudo apt install lxde xrdp -y
 
-echo "startxfce4" > ~/.xsession
-sudo chown $(whoami):$(whoami) ~/.xsession
+echo "lxsession -s LXDE -e LXDE"
+sudo chown $(whoami):$(whoami) ~/.lxsession
 sudo systemctl enable xrdp > /dev/null 2>&1
 
 echo "====== Installing Chrome ======"
