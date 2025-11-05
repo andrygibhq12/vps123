@@ -2,7 +2,7 @@
 
 sudo apt update -y
 
-echo "==== Installing Xfce ===="
+echo "===  Installing Xfce ===="
 sudo apt install xfce4 xfce4-goodies xrdp -y > /dev/null 2>&1
 
 echo "startxfce4" > ~/.xsession
@@ -16,7 +16,7 @@ sudo apt --fix-broken install -y > /dev/null 2>&1
 
 set -e
 
-echo "====== Installing Playit ======"
+echo "=== Installing Playit ==="
 sudo apt install -y sudo curl gpg > /dev/null 2>&1
 
 curl -fsSL https://playit-cloud.github.io/ppa/key.gpg | \
@@ -29,8 +29,8 @@ sudo apt update -y > /dev/null 2>&1
 sudo apt install -y playit > /dev/null 2>&1
 
 sudo systemctl enable --now playit > /dev/null 2>&1
-
-echo "====== Running Playit ======"
+echo "=== Installing Playit ==="
+echo "==== Running  Playit ===="
 playit setup
 
 echo "✅ Playit installation complete!"
