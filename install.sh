@@ -29,7 +29,7 @@ sudo apt update -y > /dev/null 2>&1
 sudo apt install -y playit > /dev/null 2>&1
 
 sudo systemctl enable --now playit > /dev/null 2>&1
-echo "=== Installing Playit ==="
+
 echo "==== Running  Playit ===="
 playit setup
 
