@@ -2,7 +2,7 @@
 
 sudo apt update -y
 
-echo "===  Installing Xfce ===="
+echo "==== Installing Xfce ===="
 sudo apt install xfce4 xfce4-goodies xrdp -y > /dev/null 2>&1
 
 echo "startxfce4" > ~/.xsession
