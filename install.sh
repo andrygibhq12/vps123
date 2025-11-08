@@ -2,7 +2,7 @@
 
 sudo apt update -y
 
-echo "==== Installing Xfce ===="
+echo "=== Installing Xfce4 ===="
 sudo apt install xfce4 xfce4-goodies xrdp -y > /dev/null 2>&1
 
 echo "startxfce4" > ~/.xsession
@@ -30,7 +30,7 @@ sudo apt install -y playit > /dev/null 2>&1
 
 sudo systemctl enable --now playit > /dev/null 2>&1
 
-echo "==== Running  Playit ===="
+echo "=== Running Playit ======"
 playit setup
 
 echo "✅ Playit installation complete!"
