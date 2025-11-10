@@ -1,11 +1,26 @@
 #!/bin/bash
 
-sudo apt update
-sudo apt install ubuntu-desktop -y
-wget https://dl.google.com/linux/direct/google-chrome-stable_current_amd64.deb
-sudo apt install ./google-chrome-stable_current_amd64.deb
-sudo apt --fix-broken install
+sudo apt update -y
 
-wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-sudo apt install ./chrome-remote-desktop_current_amd64.deb -y
-sudo reboot
+echo "===> Installing CRD"
+wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb > /dev/null 2>&1
+sudo dpkg -i chrome-remote-desktop_current_amd64.deb > /dev/null 2>&1
+sudo apt --fix-broken install -y > /dev/null 2>&1
+
+echo "===> Installing Xfce4"
+sudo apt install xfce4 xfce4-goodies -y > /dev/null 2>&1
+echo "exec xfce4-session" > ~/.chrome-remote-desktop-session
+
+echo "===> Installing Gdown"
+sudo apt install python3-pip -y > /dev/null 2>&1
+sudo pip install gdown > /dev/null 2>&1
+
+echo "===> Installing Chrome"
+wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_130.0.6723.116-1_amd64.deb > /dev/null 2>&1
+sudo dpkg -i google-chrome-stable_130.0.6723.116-1_amd64.deb > /dev/null 2>&1
+sudo apt --fix-broken install -y > /dev/null 2>&1
+
+echo "===> Installing Remmina"
+sudo snap install remmina
+
+chmod +x ~/.chrome-remote-desktop-session
