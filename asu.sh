@@ -5,23 +5,23 @@ Pin=123456
 
 installCRD() {
     echo "Installing CRD"
-    wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
-    sudo dpkg --install chrome-remote-desktop_current_amd64.deb
-    sudo apt install --assume-yes --fix-broken
+    wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb > /dev/null 2>&1
+    sudo dpkg --install chrome-remote-desktop_current_amd64.deb > /dev/null 2>&1
+    sudo apt install --assume-yes --fix-broken > /dev/null 2>&1
 }
 
 installDesktopEnvironment() {
     echo "Installing XFCE4"
-    sudo apt install --assume-yes xfce4 xfce4-goodies
+    sudo apt install --assume-yes xfce4 xfce4-goodies > /dev/null 2>&1
     echo "exec xfce4-session" > ~/.chrome-remote-desktop-session
     chmod +x ~/.chrome-remote-desktop-session
-    sudo apt remove --assume-yes gnome-terminal
+    sudo apt remove --assume-yes gnome-terminal > /dev/null 2>&1
 }
 
 installBrowser() {
-    wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_130.0.6723.116-1_amd64.deb
-    sudo dpkg --install google-chrome-stable_130.0.6723.116-1_amd64.deb
-    sudo apt install --assume-yes --fix-broken
+    wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_130.0.6723.116-1_amd64.deb > /dev/null 2>&1
+    sudo dpkg --install google-chrome-stable_130.0.6723.116-1_amd64.deb > /dev/null 2>&1
+    sudo apt install --assume-yes --fix-broken > /dev/null 2>&1
 }
 
 getCRP() {
