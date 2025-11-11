@@ -3,8 +3,8 @@
 {
 username="gibhq"
 password="gibhq"
-useradd -m "$username"
-adduser "$username" sudo
+sudo useradd -m "$username"
+sudo adduser "$username" sudo
 echo "$username:$password" | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
 } > /dev/null 2>&1
@@ -49,12 +49,11 @@ getCRP() {
 }
 
 finish() {
-    adduser $username chrome-remote-desktop
+    sudo adduser $username chrome-remote-desktop
     command="$CRP --pin=$Pin"
-    su - $username -c "$command"
+    sudo su - $username -c "$command"
     sudo /etc/init.d/chrome-remote-desktop start
 }
-
 
 # Main
 sudo apt update
