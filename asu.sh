@@ -31,6 +31,7 @@ installBrowser() {
 }
 
 getCRP() {
+    printf '\nCheck https://remotedesktop.google.com/headless \n'
     read -p "SSH Code: " CRP
     if [ -z "$CRP" ]; then
         echo "Please enter a valid value."
