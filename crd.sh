@@ -22,4 +22,4 @@ sudo dpkg -i google-chrome-stable_130.0.6723.116-1_amd64.deb > /dev/null 2>&1
 sudo apt --fix-broken install -y > /dev/null 2>&1
 
 echo "===> Installing Remmina"
-sudo apt install remmina remmina-plugin-rdp remmina-plugin-vnc remmina-plugin-secret > /dev/null 2>&1
+sudo apt install remmina remmina-plugin-rdp remmina-plugin-vnc remmina-plugin-secret -y > /dev/null 2>&1
