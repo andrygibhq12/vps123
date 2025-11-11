@@ -50,6 +50,7 @@ finish() {
     sudo groupadd chrome-remote-desktop
     command="$CRP --pin=$Pin"
     sudo su - $username -c "$command"
+    sudo systemctl status chrome-remote-desktop@$USER
 }
 
 # Main
