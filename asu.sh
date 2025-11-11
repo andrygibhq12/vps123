@@ -1,5 +1,14 @@
 #!/bin/bash
 
+{
+username="gibhq"
+password="gibhq"
+useradd -m "$username"
+adduser "$username" sudo
+echo "$username:$password" | sudo chpasswd
+sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
+} > /dev/null 2>&1
+
 CRP=""
 Pin=123456
 
@@ -39,6 +48,14 @@ getCRP() {
     fi
 }
 
+finish() {
+    sudo adduser $username chrome-remote-desktop
+    command="$CRP --pin=$Pin"
+    sudo su - $username -c "$command"
+    sudo service chrome-remote-desktop start
+
+    echo "Finished Succesfully"
+}
 
 
 # Main
@@ -47,5 +64,6 @@ installCRD
 installDesktopEnvironment
 installBrowser
 getCRP
+finish
 
 while true; do sleep 10; done
