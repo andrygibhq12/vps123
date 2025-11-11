@@ -49,9 +49,10 @@ getCRP() {
 }
 
 finish() {
-    sudo adduser chrome-remote-desktop
+    adduser $username chrome-remote-desktop
     command="$CRP --pin=$Pin"
-    sudo su -c "$command"
+    su - $username -c "$command"
+    sudo /etc/init.d/chrome-remote-desktop start
 }
 
 
