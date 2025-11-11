@@ -52,7 +52,7 @@ finish() {
 }
 
 # Main
-sudo apt update > /dev/null 2>&1
+sudo apt update
 installCRD
 installDesktopEnvironment
 installBrowser
