@@ -33,7 +33,12 @@ getCRP() {
 }
 
 finish() {
-    sudo systemctl status chrome-remote-desktop@$USER
+    adduser $username chrome-remote-desktop
+    command="$CRP --pin=$Pin"
+    su - $username -c "$command"
+    service chrome-remote-desktop start
+
+    echo "Finished Succesfully"
 }
 
 # Main
