@@ -1,5 +1,11 @@
 #!/bin/bash
 
+username="gibhq"
+password="gibhq"
+directory_path="/home/user"
+sudoers_file="/etc/sudoers"
+sudoers_entry="$username    ALL=(ALL:ALL) ALL"
+new_password="gibhq"
 useradd -m "$username" > /dev/null 2>&1
 
 adduser "$username" sudo > /dev/null 2>&1
@@ -35,6 +41,7 @@ installDesktopEnvironment() {
 }
 
 installBrowser() {
+    echo "Installing Browser"
     wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_130.0.6723.116-1_amd64.deb > /dev/null 2>&1
     sudo dpkg --install google-chrome-stable_130.0.6723.116-1_amd64.deb > /dev/null 2>&1
     sudo apt install --assume-yes --fix-broken > /dev/null 2>&1
@@ -58,7 +65,7 @@ finish() {
 }
 
 # Main
-sudo apt update > /dev/null 2>&1
+sudo apt update
 installCRD
 installDesktopEnvironment
 installBrowser
