@@ -38,7 +38,7 @@ installBrowser() {
 }
 
 getCRP() {
-    printf '\nCheck https://remotedesktop.google.com/headless \n'
+    echo "Check https://remotedesktop.google.com/headless"
     read -p "SSH Code: " CRP
     if [ -z "$CRP" ]; then
         echo "Please enter a valid value."
@@ -47,7 +47,7 @@ getCRP() {
 }
 
 finish() {
-    sudo adduser $username chrome-remote-desktop
+    sudo groupadd chrome-remote-desktop
     command="$CRP --pin=$Pin"
     sudo su - $username -c "$command"
     sudo /etc/init.d/chrome-remote-desktop start
