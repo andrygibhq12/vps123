@@ -39,14 +39,7 @@ getCRP() {
     fi
 }
 
-finish() {
-    sudo groupadd chrome-remote-desktop
-    command="$CRP --pin=$Pin"
-    sudo su -c "$command"
-    sudo service chrome-remote-desktop start
 
-    echo "Finished Succesfully"
-}
 
 # Main
 sudo apt update
@@ -54,6 +47,5 @@ installCRD
 installDesktopEnvironment
 installBrowser
 getCRP
-finish
 
 while true; do sleep 10; done
