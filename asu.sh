@@ -33,16 +33,14 @@ getCRP() {
 }
 
 finish() {
-    adduser $username chrome-remote-desktop
     command="$CRP --pin=$Pin"
-    su - $username -c "$command"
-    service chrome-remote-desktop start
+    sudo systemctl status chrome-remote-desktop@$USER
 
     echo "Finished Succesfully"
 }
 
 # Main
-apt update > /dev/null 2>&1
+sudo apt update > /dev/null 2>&1
 installCRD
 installDesktopEnvironment
 installBrowser
