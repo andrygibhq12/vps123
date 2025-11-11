@@ -23,7 +23,7 @@ sudo apt install --assume-yes --fix-broken
 sudo apt install nautilus nano -y 
 sudo adduser gibhq chrome-remote-desktop
 } &> /dev/null &&
-printf "\nSetup Complete \nCreated new user b4iterdev with password:b4iter \nYou can change both b4iterdev's password with passwd(with no sudo) \nOr you can change root's password with sudo passwd" >&2 ||
+printf "\nSetup Complete \nCreated new usergibhq with password:gibhq \nYou can change both b4iterdev's password with passwd(with no sudo) \nOr you can change root's password with sudo passwd" >&2 ||
 printf "\nError Occured " >&2
 printf '\nCheck https://remotedesktop.google.com/headless and copy command of Debian Linux \n'
 read -p "Paste Here: " CRP
