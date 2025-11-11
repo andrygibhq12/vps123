@@ -4,6 +4,7 @@ sudo useradd -m $username
 sudo adduser $username sudo
 echo '$username:$password' | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
+sudo adduser --disabled-password "$username"
 
 CRP=""
 Pin=123456
