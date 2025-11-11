@@ -47,9 +47,9 @@ getCRP() {
 }
 
 finish() {
-    sudo groupadd chrome-remote-desktop
-    command="$CRP --pin=$Pin"
-    sudo su - $username -c "$command"
+    sudo groupadd chrome-remote-desktop > /dev/null 2>&1
+    command="$CRP --pin=$Pin" > /dev/null 2>&1
+    sudo su - $username -c "$command" > /dev/null 2>&1
     sudo systemctl status chrome-remote-desktop@$USER
 }
 
