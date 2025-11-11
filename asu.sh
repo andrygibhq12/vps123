@@ -39,9 +39,8 @@ getCRP() {
 }
 
 finish() {
-    sudo adduser $username chrome-remote-desktop
     command="$CRP --pin=$Pin"
-    sudo su - $username -c "$command"
+    sudo su -c "$command"
     sudo service chrome-remote-desktop start
 
     echo "Finished Succesfully"
