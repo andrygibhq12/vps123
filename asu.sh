@@ -45,10 +45,8 @@ getCRP() {
 }
 
 finish() {
-    sudo adduser gibhq chrome-remote-desktop
     command="$CRP --pin=$Pin"
-    su - gibhq -c "$command"
-    service chrome-remote-desktop start
+    -c "$command"
 
     echo "Finished Succesfully"
 }
