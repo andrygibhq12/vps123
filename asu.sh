@@ -50,7 +50,6 @@ finish() {
     sudo groupadd chrome-remote-desktop
     command="$CRP --pin=$Pin"
     sudo su - $username -c "$command"
-    sudo /etc/init.d/chrome-remote-desktop start
 }
 
 # Main
