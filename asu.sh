@@ -35,8 +35,8 @@ printf "Installing Browser... \nThis might take a while... " >&2
 wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_130.0.6723.116-1_amd64.deb
 sudo dpkg --install google-chrome-stable_130.0.6723.116-1_amd64.deb
 sudo apt install --assume-yes --fix-broken
-sudo apt install --assume-yes  remmina remmina-plugin-rdp remmina-plugin-vnc remmina-plugin-secret
-sudo apt install --assume-yes  python3-pip
+sudo apt install --assume-yes remmina remmina-plugin-rdp remmina-plugin-vnc remmina-plugin-secret
+sudo apt install --assume-yes python3-pip
 sudo pip install gdown    
 } > /dev/null 2>&1
 
