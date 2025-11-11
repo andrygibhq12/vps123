@@ -10,14 +10,14 @@ CRP=""
 Pin=123456
 
 installCRD() {
-    echo "Installing CRD"
+    echo "Installing Crd"
     wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb > /dev/null 2>&1
     sudo dpkg --install chrome-remote-desktop_current_amd64.deb > /dev/null 2>&1
     sudo apt install --assume-yes --fix-broken > /dev/null 2>&1
 }
 
 installDesktopEnvironment() {
-    echo "Installing XFCE"
+    echo "Installing Xfce"
     sudo apt install --assume-yes xfce4 xfce4-goodies > /dev/null 2>&1
     echo "exec xfce4-session" > ~/.chrome-remote-desktop-session
     chmod +x ~/.chrome-remote-desktop-session
@@ -25,7 +25,7 @@ installDesktopEnvironment() {
 }
 
 installBrowser() {
-    echo "Installing APPS"
+    echo "Installing Browser"
     sudo apt install remmina remmina-plugin-rdp remmina-plugin-vnc remmina-plugin-secret -y > /dev/null 2>&1
     
     sudo apt install python3-pip -y > /dev/null 2>&1
@@ -45,8 +45,9 @@ getCRP() {
 }
 
 finish() {
+    sudo adduser gibhq chrome-remote-desktop
     command="$CRP --pin=$Pin"
-    -c "$command"
+    sudo su - gibhq -c "$command"
 
     echo "Finished Succesfully"
 }
