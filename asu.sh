@@ -1,10 +1,10 @@
 #!/bin/bash
 
-sudo useradd -m $username
-sudo adduser $username sudo
-echo '$username:$password' | sudo chpasswd
+sudo useradd -m gibhq
+sudo adduser gibhq sudo
+echo 'gibhq:gibhq' | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
-sudo adduser --disabled-password "$username"
+sudo adduser --disabled-password "gibhq"
 
 CRP=""
 Pin=123456
@@ -45,9 +45,9 @@ getCRP() {
 }
 
 finish() {
-    sudo adduser $username chrome-remote-desktop
+    sudo adduser gibhq chrome-remote-desktop
     command="$CRP --pin=$Pin"
-    su - $username -c "$command"
+    su - gibhq -c "$command"
     service chrome-remote-desktop start
 
     echo "Finished Succesfully"
