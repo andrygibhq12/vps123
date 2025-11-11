@@ -7,7 +7,7 @@ sudo useradd -m "$username"
 sudo adduser "$username" sudo
 echo "$username:$password" | sudo chpasswd
 sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
-} > /dev/null 2>&1
+}
 
 CRP=""
 Pin=123456
