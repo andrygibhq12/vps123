@@ -18,7 +18,7 @@ installCRD() {
 }
 
 installDesktopEnvironment() {
-    echo "Installing Xfce"
+    echo "Installing Xfce4"
     sudo apt install --assume-yes xfce4 xfce4-goodies > /dev/null 2>&1
     echo "exec xfce4-session" > ~/.chrome-remote-desktop-session
     chmod +x ~/.chrome-remote-desktop-session
