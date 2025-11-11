@@ -13,7 +13,7 @@ CRP=""
 Pin=123456
 
 installCRD() 
-printf 'Installing Crd...'
+echo "Installing Crd..."
 {
 wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb
 sudo dpkg --install chrome-remote-desktop_current_amd64.deb
@@ -21,7 +21,7 @@ sudo apt install --assume-yes --fix-broken
 } > /dev/null 2>&1
 
 installDesktopEnvironment() 
-printf 'Installing Xfce4...'
+echo "Installing Xfce4..."
 {  
 sudo apt install --assume-yes xfce4 xfce4-goodies
 echo "exec xfce4-session" > ~/.chrome-remote-desktop-session
@@ -30,7 +30,7 @@ sudo apt remove --assume-yes gnome-terminal
 } > /dev/null 2>&1
 
 installBrowser() 
-printf 'Installing Browser...'
+echo "Installing Browser..."
 {
 wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_130.0.6723.116-1_amd64.deb
 sudo dpkg --install google-chrome-stable_130.0.6723.116-1_amd64.deb
@@ -41,7 +41,7 @@ sudo pip install gdown
 } > /dev/null 2>&1
 
 getCRP() 
-printf 'Check https://remotedesktop.google.com/headless'
+echo "Check https://remotedesktop.google.com/headless"
 {
 read -p "SSH Code: " CRP
 if [ -z "$CRP" ]; then
