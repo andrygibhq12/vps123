@@ -1,13 +1,11 @@
 #!/bin/bash
 
-{
 username="gibhq"
 password="gibhq"
-sudo useradd -m "$username"
-sudo adduser "$username" sudo
-echo "$username:$password" | sudo chpasswd
-sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd
-} > /dev/null 2>&1
+sudo useradd -m "$username" > /dev/null 2>&1
+sudo adduser "$username" sudo > /dev/null 2>&1
+echo "$username:$password" | sudo chpasswd > /dev/null 2>&1
+sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd > /dev/null 2>&1
 
 CRP=""
 Pin=123456
@@ -54,7 +52,7 @@ finish() {
 }
 
 # Main
-sudo apt update
+sudo apt update > /dev/null 2>&1
 installCRD
 installDesktopEnvironment
 installBrowser
