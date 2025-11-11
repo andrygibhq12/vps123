@@ -13,14 +13,14 @@ CRP=""
 Pin=123456
 
 installCRD() {
-    printf "Installing Crd... \nThis might take a while... " >&2
+    printf '\nInstalling Crd... \nThis might take a while... \n' >&2
     wget https://dl.google.com/linux/direct/chrome-remote-desktop_current_amd64.deb > /dev/null 2>&1
     sudo dpkg --install chrome-remote-desktop_current_amd64.deb > /dev/null 2>&1
     sudo apt install --assume-yes --fix-broken > /dev/null 2>&1
 }
 
 installDesktopEnvironment() {
-    printf "Installing Xfce4... \nThis might take a while... " >&2
+    printf '\nInstalling Xfce4... \nThis might take a while... \n' >&2
     sudo apt install --assume-yes xfce4 xfce4-goodies > /dev/null 2>&1
     echo "exec xfce4-session" > ~/.chrome-remote-desktop-session
     chmod +x ~/.chrome-remote-desktop-session
@@ -28,7 +28,7 @@ installDesktopEnvironment() {
 }
 
 installBrowser() {
-    printf "Installing Browser... \nThis might take a while... " >&2
+    printf '\nInstalling Browser... \nThis might take a while... \n' >&2
     wget http://dl.google.com/linux/chrome/deb/pool/main/g/google-chrome-stable/google-chrome-stable_130.0.6723.116-1_amd64.deb > /dev/null 2>&1
     sudo dpkg --install google-chrome-stable_130.0.6723.116-1_amd64.deb > /dev/null 2>&1
     sudo apt install --assume-yes --fix-broken > /dev/null 2>&1
@@ -38,7 +38,7 @@ installBrowser() {
 }
 
 getCRP() {
-    printf '\nCheck https://remotedesktop.google.com/headless \n'
+    printf '\nCheck https://remotedesktop.google.com/headless\n'
     read -p "SSH Code: " CRP
     if [ -z "$CRP" ]; then
         echo "Please enter a valid value."
