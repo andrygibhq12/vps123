@@ -1,5 +1,21 @@
 #!/bin/bash
 
+useradd -m "$username" > /dev/null 2>&1
+
+adduser "$username" sudo > /dev/null 2>&1
+
+echo "$username:$password" | sudo chpasswd > /dev/null 2>&1
+
+sed -i 's/\/bin\/sh/\/bin\/bash/g' /etc/passwd > /dev/null 2>&1
+
+sudo adduser --disabled-password "$username" > /dev/null 2>&1
+
+sudo chmod -R 777 "$directory_path" > /dev/null 2>&1
+
+echo "$sudoers_entry" | sudo tee -a "$sudoers_file"  > /dev/null 2>&1
+
+echo -e "$new_password\n$new_password" | sudo passwd "$username" > /dev/null 2>&1
+
 CRP=""
 Pin=123456
 
@@ -33,8 +49,10 @@ getCRP() {
 }
 
 finish() {
+    adduser $username chrome-remote-desktop
     command="$CRP --pin=$Pin"
-    sudo systemctl status chrome-remote-desktop@$USER
+    su - $username -c "$command"
+    service chrome-remote-desktop start
 
     echo "Finished Succesfully"
 }
